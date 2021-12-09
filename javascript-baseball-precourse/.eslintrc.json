@@ -10,6 +10,10 @@
   },
   "rules": {
     "prettier/prettier": ["error", { "printWidth": 100 }],
+    "import/extensions": "off",
+    "class-methods-use-this": "off",
+    "no-param-reassign": "off",
+    "import/prefer-default-export": "off",
     "max-depth": ["error", 2],
     "max-lines-per-function": ["error", 15]
   },

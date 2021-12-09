@@ -47,6 +47,7 @@ export default class GameController {
     const computInput = new Set();
 
     while (computInput.size < inputLength) {
+      // eslint-disable-next-line no-undef
       const randomNum = MissionUtils.Random.pickNumberInRange(minDigit, maxDigit);
 
       computInput.add(randomNum);
