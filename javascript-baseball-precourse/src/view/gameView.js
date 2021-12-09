@@ -5,4 +5,8 @@ export default class GameView {
     this.$userInput = $('#user-input');
     this.$userInputForm = $('#user-input-form');
   }
+
+  resetUserInput() {
+    this.$userInput.value = '';
+  }
 }

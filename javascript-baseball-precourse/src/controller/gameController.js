@@ -35,6 +35,8 @@ export default class GameController {
       this.gameModel.setUserInput(userInput);
     } catch (err) {
       showError(err);
+
+      this.gameView.resetUserInput();
     }
   }
 
