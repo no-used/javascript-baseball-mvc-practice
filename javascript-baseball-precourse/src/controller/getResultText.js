@@ -1,6 +1,8 @@
+import NUMBER from '../constants/number.js';
+
 const checkStrike = (computerInputNumbers, userInputNumbers) => {
   return [...userInputNumbers].reduce((acc, cur, idx) => {
-    acc += [...computerInputNumbers][idx] === cur && 1;
+    acc += [...computerInputNumbers][idx] === cur && NUMBER.ADD_COUNT;
 
     return acc;
   }, 0);
@@ -10,7 +12,10 @@ const checkBall = (computerInputNumbers, userInputNumbers) => {
   return [...userInputNumbers].reduce((acc, cur, idx) => {
     const computerInputNumbersArray = [...computerInputNumbers];
 
-    acc += computerInputNumbersArray.includes(cur) && cur !== computerInputNumbersArray[idx] && 1;
+    acc +=
+      computerInputNumbersArray.includes(cur) &&
+      cur !== computerInputNumbersArray[idx] &&
+      NUMBER.ADD_COUNT;
 
     return acc;
   }, 0);
