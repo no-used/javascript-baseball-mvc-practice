@@ -29,18 +29,17 @@ export default class GameController {
 
   handleUserInput(e) {
     e.preventDefault();
-
     const userInput = this.gameView.$userInput.value;
 
     try {
       this.gameModel.setUserInput(userInput);
     } catch (err) {
       showError(err);
-
       this.gameView.resetUserInput();
     }
 
     const resultText = this.play(this.gameModel.computerInput, this.gameModel.userInput);
+    this.gameView.renderResult(resultText);
   }
 
   generateComputerInput(minDigit, maxDigit, inputLength) {
