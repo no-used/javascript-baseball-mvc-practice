@@ -10,7 +10,7 @@ const checkBall = (computerInputNumbers, userInputNumbers) => {
   return [...userInputNumbers].reduce((acc, cur, idx) => {
     const computerInputNumbersArray = [...computerInputNumbers];
 
-    if (computerInputNumbersArray.includes(cur) && cur !== computerInputNumbersArray[idx]) acc += 1;
+    acc += computerInputNumbersArray.includes(cur) && cur !== computerInputNumbersArray[idx] && 1;
 
     return acc;
   }, 0);
