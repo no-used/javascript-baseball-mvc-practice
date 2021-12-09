@@ -6,7 +6,7 @@
 
 #### 입력
 
-- [ ] window 객체내에 포함되어 있는 MissionUtils의 Random.pickNumberInRange를 이용해서 컴퓨터 랜덤값을 입력한다.
+- [x] window 객체내에 포함되어 있는 MissionUtils의 Random.pickNumberInRange를 이용해서 컴퓨터 랜덤값을 입력한다.
 - [x] 사용자가 값을 입력하고 확인 버튼을 눌러 값을 제출한다.
 
 #### 입력 값 체크
@@ -31,3 +31,31 @@
 - [ ] 입력 받은 숫자에 대한 판별 결과를 출력한다. (정답일 경우)
   - [ ] 정답을 맟힌 경우 게임이 종료되고, 재시작 버튼이 노출된다.
   - [ ] 재시작 버튼을 클릭해 게임을 다시 시작할 수 있다.
+
+### 프로그래밍 요구사항
+
+```javascript
+
+export default function BaseballGame() {
+  this.play = function (computerInputNumbers, userInputNumbers) {
+    return "결과 값 String";
+  };
+}
+
+export default class BaseballGame {
+  play(computerInputNumbers, userInputNumbers) {
+    return "결과 값 String";
+  }
+}
+
+// 예시
+play(123, 456); // '낫싱'
+play(123, 345); // '1볼'
+play(123, 432); // '2볼'
+play(123, 312); // '3볼'
+play(123, 145); // '1스트라이크'
+play(123, 134); // '1볼 1스트라이크'
+play(123, 132); // '2볼 1스트라이크'
+play(123, 124); // '2스트라이크'
+
+```

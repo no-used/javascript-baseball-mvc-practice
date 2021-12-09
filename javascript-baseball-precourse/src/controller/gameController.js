@@ -1,12 +1,23 @@
-//사용자가 값을 입력하고 확인 버튼을 눌러 값을 제출한다.
 import GameView from '../view/gameView.js';
 import GameModel from '../model/gameModel.js';
+import NUMBER from '../constants/number.js';
 
 export default class GameController {
   constructor() {
     this.gameView = new GameView();
-    this.GameModel = new GameModel();
+    this.gameModel = new GameModel();
 
+    this.init();
+  }
+
+  init() {
+    const computerRandomInput = this.generateComputerInput(
+      NUMBER.MIN_DIGIT,
+      NUMBER.MAX_DIGIT,
+      NUMBER.INPUT_MAX_LENGTH
+    );
+
+    this.gameModel.setComputerInput(computerRandomInput);
     this.addEvents();
   }
 
@@ -20,5 +31,17 @@ export default class GameController {
     const userInput = this.gameView.$userInput.value;
 
     this.GameModel.setUserInput(userInput);
+  }
+
+  generateComputerInput(minDigit, maxDigit, inputMaxLength) {
+    const computInput = new Set();
+
+    while (computInput.size < inputMaxLength) {
+      const randomNum = MissionUtils.Random.pickNumberInRange(minDigit, maxDigit);
+
+      computInput.add(randomNum);
+    }
+
+    return [...computInput].join('');
   }
 }
