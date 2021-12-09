@@ -15,7 +15,7 @@ export default class GameController {
     const computerRandomInput = this.generateComputerInput(
       NUMBER.MIN_DIGIT,
       NUMBER.MAX_DIGIT,
-      NUMBER.INPUT_MAX_LENGTH
+      NUMBER.INPUT_LENGTH
     );
 
     this.gameModel.setComputerInput(computerRandomInput);
@@ -40,10 +40,10 @@ export default class GameController {
     }
   }
 
-  generateComputerInput(minDigit, maxDigit, inputMaxLength) {
+  generateComputerInput(minDigit, maxDigit, inputLength) {
     const computInput = new Set();
 
-    while (computInput.size < inputMaxLength) {
+    while (computInput.size < inputLength) {
       const randomNum = MissionUtils.Random.pickNumberInRange(minDigit, maxDigit);
 
       computInput.add(randomNum);

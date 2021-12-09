@@ -10,10 +10,15 @@ const isNotDuplicatedNum = (value) => {
   return value.length === valueSet.size;
 };
 
+const isGivenLength = (value, givenLength) => {
+  return value.length === givenLength;
+};
+
 export const isValiUserInput = (value) => {
   return (
     !Number.isNaN(Number(value)) &&
     isEveryNumberInRange(value, NUMBER.MIN_DIGIT, NUMBER.MAX_DIGIT) &&
-    isNotDuplicatedNum(value)
+    isNotDuplicatedNum(value) &&
+    isGivenLength(value, NUMBER.INPUT_LENGTH)
   );
 };
