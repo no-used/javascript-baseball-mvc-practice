@@ -5,6 +5,12 @@ export default class GameView {
     this.$userInput = $('#user-input');
     this.$userInputForm = $('#user-input-form');
     this.$result = $('#result');
+
+    this.initResult();
+  }
+
+  initResult() {
+    this.$result.innerHTML = '';
   }
 
   resetUserInput() {
