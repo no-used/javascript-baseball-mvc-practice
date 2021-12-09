@@ -30,7 +30,7 @@ export default class GameController {
 
     const userInput = this.gameView.$userInput.value;
 
-    this.GameModel.setUserInput(userInput);
+    this.gameModel.setUserInput(userInput);
   }
 
   generateComputerInput(minDigit, maxDigit, inputMaxLength) {
