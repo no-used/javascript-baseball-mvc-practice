@@ -1,4 +1,6 @@
 import { isValiUserInput } from './validator.js';
+import { throwError } from '../utils/error.js';
+import MESSAGE from '../constants/message.js';
 
 export default class GameModel {
   constructor() {
@@ -9,7 +11,8 @@ export default class GameModel {
   setUserInput(userInput) {
     if (isValiUserInput(userInput)) {
       this.userInput = userInput;
-      console.log(userInput, this.userInput);
+    } else {
+      throwError(MESSAGE.ERROR.USER_INPUT);
     }
   }
 

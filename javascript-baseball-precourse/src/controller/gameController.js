@@ -1,6 +1,7 @@
 import GameView from '../view/gameView.js';
 import GameModel from '../model/gameModel.js';
 import NUMBER from '../constants/number.js';
+import { showError } from '../utils/error.js';
 
 export default class GameController {
   constructor() {
@@ -30,7 +31,11 @@ export default class GameController {
 
     const userInput = this.gameView.$userInput.value;
 
-    this.gameModel.setUserInput(userInput);
+    try {
+      this.gameModel.setUserInput(userInput);
+    } catch (err) {
+      showError(err);
+    }
   }
 
   generateComputerInput(minDigit, maxDigit, inputMaxLength) {
