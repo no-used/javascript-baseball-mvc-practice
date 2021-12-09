@@ -19,12 +19,20 @@ const checkBall = (computerInputNumbers, userInputNumbers) => {
 const checkResult = (computerInputNumbers, userInputNumbers) => {
   const strikeCount = checkStrike(computerInputNumbers, userInputNumbers);
   const ballCount = checkBall(computerInputNumbers, userInputNumbers);
-  console.log(strikeCount, ballCount);
+
+  return [strikeCount, ballCount];
+};
+
+const transformToText = (strikeCount, ballCount) => {
+  // if (strikeCount === 3) return '정답';
+  if (strikeCount === 0 && ballCount === 0) return '낫싱';
+  // return '낫싱';
 };
 
 export const getResultText = (computerInputNumbers, userInputNumbers) => {
-  checkResult(computerInputNumbers, userInputNumbers);
+  const [strikeCount, ballCount] = checkResult(computerInputNumbers, userInputNumbers);
 
-  const resultText = '';
+  const resultText = transformToText(strikeCount, ballCount);
+
   return resultText;
 };
