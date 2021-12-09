@@ -1,11 +1,9 @@
 const checkStrike = (computerInputNumbers, userInputNumbers) => {
-  let strikeCount = 0;
+  return [...userInputNumbers].reduce((acc, cur, idx) => {
+    acc += [...computerInputNumbers][idx] === cur && 1;
 
-  for (let i = 0; i < computerInputNumbers.length; i += 1) {
-    strikeCount += computerInputNumbers[i] === userInputNumbers[i] && 1;
-  }
-
-  return strikeCount;
+    return acc;
+  }, 0);
 };
 
 const checkBall = (computerInputNumbers, userInputNumbers) => {
@@ -21,7 +19,7 @@ const checkBall = (computerInputNumbers, userInputNumbers) => {
 const checkResult = (computerInputNumbers, userInputNumbers) => {
   const strikeCount = checkStrike(computerInputNumbers, userInputNumbers);
   const ballCount = checkBall(computerInputNumbers, userInputNumbers);
-  console.log(ballCount);
+  console.log(strikeCount, ballCount);
 };
 
 export const getResultText = (computerInputNumbers, userInputNumbers) => {
