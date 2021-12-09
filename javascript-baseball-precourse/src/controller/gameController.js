@@ -13,18 +13,19 @@ export default class GameController {
   }
 
   init() {
-    const computerRandomInput = this.generateComputerInput(
-      NUMBER.MIN_DIGIT,
-      NUMBER.MAX_DIGIT,
-      NUMBER.INPUT_LENGTH
-    );
+    this.saveComputerInput(NUMBER.MIN_DIGIT, NUMBER.MAX_DIGIT, NUMBER.INPUT_LENGTH);
+    this.addEvents();
+  }
+
+  saveComputerInput(minDigit, maxDigit, inputLength) {
+    const computerRandomInput = this.generateComputerInput(minDigit, maxDigit, inputLength);
 
     this.gameModel.setComputerInput(computerRandomInput);
-    this.addEvents();
   }
 
   addEvents() {
     this.gameView.$userInputForm.addEventListener('submit', this.handleUserInput.bind(this));
+    this.gameView.$result.addEventListener('click', this.restartGame.bind(this));
   }
 
   handleUserInput(e) {
@@ -57,5 +58,11 @@ export default class GameController {
   play(computerInputNumbers, userInputNumbers) {
     const resultText = getResultText(computerInputNumbers, userInputNumbers);
     return resultText;
+  }
+
+  restartGame() {
+    this.gameView.resetUserInput();
+    this.gameView.initResult();
+    this.saveComputerInput(NUMBER.MIN_DIGIT, NUMBER.MAX_DIGIT, NUMBER.INPUT_LENGTH);
   }
 }
