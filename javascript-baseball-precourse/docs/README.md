@@ -21,7 +21,7 @@
 - [x] 같은 수가 같은 자리에 있으면 `스트라이크`
 - [x] 다른 자리에 있으면 `볼`
 - [x] 같은 수가 전혀 없으면 `낫싱`
-- [ ] `스트라이크`와 `볼`이 같이 있는 경우 `볼`을 먼저 쓰고, `스트라이크`를 쓴다.
+- [x] `스트라이크`와 `볼`이 같이 있는 경우 `볼`을 먼저 쓰고, `스트라이크`를 쓴다.
 
 #### 결과 출력
 
@@ -35,31 +35,3 @@
 - [x] 입력받은 값이 숫자가 아니면 에러 메시지를 출력한다.
 - [x] 잘못된 입력값을 받으면 입력창을 리셋시킨다.
 - [x] 처음 사이트에 접속했을 때 결과창을 리셋시켜준다.
-
-### 프로그래밍 요구사항
-
-```javascript
-
-export default function BaseballGame() {
-  this.play = function (computerInputNumbers, userInputNumbers) {
-    return "결과 값 String";
-  };
-}
-
-export default class BaseballGame {
-  play(computerInputNumbers, userInputNumbers) {
-    return "결과 값 String";
-  }
-}
-
-// 예시
-play(123, 456); // '낫싱'
-play(123, 345); // '1볼'
-play(123, 432); // '2볼'
-play(123, 312); // '3볼'
-play(123, 145); // '1스트라이크'
-play(123, 134); // '1볼 1스트라이크'
-play(123, 132); // '2볼 1스트라이크'
-play(123, 124); // '2스트라이크'
-
-```
