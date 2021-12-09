@@ -18,6 +18,5 @@ export default class GameModel {
 
   setComputerInput(computerInput) {
     this.computerInput = computerInput;
-    console.log(this.computerInput);
   }
 }
