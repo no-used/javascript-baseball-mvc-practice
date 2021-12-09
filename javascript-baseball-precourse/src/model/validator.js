@@ -1,8 +1,7 @@
 import NUMBER from '../constants/number.js';
 
-const isNumberInRange = (value, minDigit, maxDigit) => {
-  // return value >= minDigit && value <= maxDigit;
-  return true;
+const isEveryNumberInRange = (value, minDigit, maxDigit) => {
+  return [...value].every((num) => num >= minDigit && num <= maxDigit);
 };
 
 const isNotDuplicatedNum = (value) => {
@@ -14,7 +13,7 @@ const isNotDuplicatedNum = (value) => {
 export const isValiUserInput = (value) => {
   return (
     !Number.isNaN(Number(value)) &&
-    isNumberInRange(value, NUMBER.MIN_DIGIT, NUMBER.MAX_DIGIT) &&
+    isEveryNumberInRange(value, NUMBER.MIN_DIGIT, NUMBER.MAX_DIGIT) &&
     isNotDuplicatedNum(value)
   );
 };
