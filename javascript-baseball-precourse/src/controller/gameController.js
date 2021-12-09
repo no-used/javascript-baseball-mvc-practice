@@ -2,6 +2,7 @@ import GameView from '../view/gameView.js';
 import GameModel from '../model/gameModel.js';
 import NUMBER from '../constants/number.js';
 import { showError } from '../utils/error.js';
+import { getResultText } from './getResultText.js';
 
 export default class GameController {
   constructor() {
@@ -38,6 +39,8 @@ export default class GameController {
 
       this.gameView.resetUserInput();
     }
+
+    const resultText = this.play(this.gameModel.computerInput, this.gameModel.userInput);
   }
 
   generateComputerInput(minDigit, maxDigit, inputLength) {
@@ -50,5 +53,10 @@ export default class GameController {
     }
 
     return [...computInput].join('');
+  }
+
+  play(computerInputNumbers, userInputNumbers) {
+    const resultText = getResultText(computerInputNumbers, userInputNumbers);
+    return resultText;
   }
 }
